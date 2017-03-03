@@ -26,6 +26,44 @@ TreeNode *insertEmployee(TreeNode *tp, char *s) {
   return tp;
 }
 
+/* Removing an employee from the Tree */
+TreeNode *removeEmployee(TreeNode *tp, char *s) {
+  if (tp == NULL){
+    printf("Employee not found.\n");
+    return tp;
+  }
+  if (compare(tp->name, s) > 0)
+    tp->left = removeEmployee(tp->left, s);
+  else if (compare(tp->name, s) < 0)
+    tp->right = removeEmployee(tp->right, s);
+  else {
+    if (tp->left == NULL){
+      TreeNode *temp = tp->right;
+      free(tp);
+      return temp;
+    } else if (tp->right == NULL) {
+      TreeNode *temp = tp->left;
+      free(tp);
+      return temp;
+    }
+    TreeNode *temp = findMin(tp->right);
+    tp->name = temp->name;
+    tp->right = removeEmployee(tp->right, temp->name);
+    
+  }
+  return tp;
+}
+
+/* Find the min val in the tree */
+TreeNode *findMin(TreeNode *tp) {
+  TreeNode *current = tp;
+
+  while (current->left != NULL)
+    current = current->left;
+
+  return current;
+}
+
 /* Printing the Tree in order */
 void printTree(TreeNode *tp) {
   if (tp != NULL) {  
