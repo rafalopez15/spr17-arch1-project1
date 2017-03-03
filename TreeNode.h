@@ -11,9 +11,6 @@ typedef struct TreeNode {
 /* Creating the root to the tree */
 TreeNode *Tree();
 
-/* Creating a Node */
-TreeNode *createNode(char *name);
-
 /* Adding a new employee to the tree */
 TreeNode *insertEmployee(TreeNode *tp, char *s);
 
