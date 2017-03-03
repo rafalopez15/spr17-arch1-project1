@@ -20,18 +20,18 @@ int main() {
   //  printf("Main\n");
   char buff[25];
   struct TreeNode *root;
-
-  /*
-  insertEmployee(root, "Rafa");
-  insertEmployee(root, "Kevin");
-  insertEmployee(root, "Marco");
-  */
-
+  
   root = NULL;
   while (gets_n(buff, 25)) {
     printf("Inserting: %s\n", buff);
     root = insertEmployee(root, buff);
   }
+
+  insertEmployee(root, "Jose");
+  insertEmployee(root, "Omar");
+  insertEmployee(root, "Joey");
+
+  root = removeEmployee(root, "Michael");
   
   printTree(root);
 
