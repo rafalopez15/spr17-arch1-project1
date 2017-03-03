@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "TreeNode.h"
 
-/* Method to create root of tree */
+/* Method to create a tree node */
 TreeNode *Tree(void) {
   return (TreeNode *)malloc(sizeof(TreeNode));
 }
