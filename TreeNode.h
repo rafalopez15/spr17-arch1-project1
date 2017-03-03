@@ -15,7 +15,10 @@ TreeNode *Tree();
 TreeNode *insertEmployee(TreeNode *tp, char *s);
 
 /* Removing an emloyee from the tree */
-void removeEmployee(TreeNode *tp);
+TreeNode *removeEmployee(TreeNode *tp, char *s);
+
+/* Find the mininum node in the tree */
+TreeNode *findMin(TreeNode *tp);
 
 /* Printing the tree inorder */
 void printTree(TreeNode *tp);
