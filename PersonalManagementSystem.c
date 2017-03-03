@@ -3,6 +3,8 @@
 #include <string.h>
 #include "TreeNode.h"
 
+void userInterface();
+
 int gets_n(char *s, int buff) {
   char *p = s;
   char c;
@@ -17,11 +19,41 @@ int gets_n(char *s, int buff) {
 }
 
 int main() {
-  //  printf("Main\n");
   char buff[25];
   struct TreeNode *root;
   
   root = NULL;
+
+  int options = 0;
+  do {
+    userInterface();
+    
+    scanf("%d", &options);
+    
+    switch(options) {
+    case 1:
+      printf("Enter the employee name\n");
+      scanf(" %s", buff);
+      printf("Inserting: %s\n", buff);
+      root = insertEmployee(root, buff);
+      break;
+      
+    case 2:
+      printf("Enter employee to delete\n");
+      scanf(" %s", buff);
+      root = removeEmployee(root, buff);
+      break;
+      
+    case 3:
+      printf("Printing tree: \n");
+      printTree(root);
+      break;
+      
+    default:
+      break;
+    }
+  } while (options != 4);
+  /*
   while (gets_n(buff, 25)) {
     printf("Inserting: %s\n", buff);
     root = insertEmployee(root, buff);
@@ -32,10 +64,18 @@ int main() {
   insertEmployee(root, "Joey");
 
   root = removeEmployee(root, "Michael");
-  
-  printTree(root);
 
+  printf("Printing Tree in order\n");
+  printTree(root);
+  */
+  
   return 0;
 }
 
-
+void userInterface() {
+  printf("\tPERSONNEL MANAGEMENT SYSTEM\n");
+  printf("1 - Add an employee\n");
+  printf("2 - Remove an employee\n");
+  printf("3 - List all employees\n");
+  printf("4 - Exit\n");
+}
