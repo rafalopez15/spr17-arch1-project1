@@ -54,6 +54,25 @@ TreeNode *removeEmployee(TreeNode *tp, char *s) {
   return tp;
 }
 
+/* Make Tree from a file */
+TreeNode *makeTreeFromFile(TreeNode *tp) {
+  FILE *file;
+  char buffer[25];
+
+  file = fopen("EmployeeNames.txt", "r");
+  if (!file) {
+    printf("No file found.\n");
+    return tp;
+  }
+
+  while (fgets(buffer,25, file) != NULL)
+    tp = insertEmployee(tp, buffer);
+
+  fclose(file);
+  printf("Tree Constructed!\n");
+  return tp;
+}
+
 /* Find the min val in the tree */
 TreeNode *findMin(TreeNode *tp) {
   TreeNode *current = tp;
