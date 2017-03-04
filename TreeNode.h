@@ -17,6 +17,9 @@ TreeNode *insertEmployee(TreeNode *tp, char *s);
 /* Removing an emloyee from the tree */
 TreeNode *removeEmployee(TreeNode *tp, char *s);
 
+/* Make a tree from a file */
+TreeNode *makeTreeFromFile(TreeNode *tp);
+
 /* Find the mininum node in the tree */
 TreeNode *findMin(TreeNode *tp);
 
