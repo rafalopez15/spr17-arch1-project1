@@ -4,7 +4,7 @@
 #include "TreeNode.h"
 
 void userInterface();
-
+/*
 int gets_n(char *s, int buff) {
   char *p = s;
   char c;
@@ -17,7 +17,7 @@ int gets_n(char *s, int buff) {
   }
   return (p - s);
 }
-
+*/
 int main() {
   char buff[25];
   struct TreeNode *root;
@@ -48,11 +48,16 @@ int main() {
       printf("Printing tree: \n");
       printTree(root);
       break;
+
+    case 4:
+      printf("Making Tree...\n");
+      root = makeTreeFromFile(root);
+      break;
       
     default:
       break;
     }
-  } while (options != 4);
+  } while (options != 5);
   /*
   while (gets_n(buff, 25)) {
     printf("Inserting: %s\n", buff);
@@ -77,5 +82,6 @@ void userInterface() {
   printf("1 - Add an employee\n");
   printf("2 - Remove an employee\n");
   printf("3 - List all employees\n");
-  printf("4 - Exit\n");
+  printf("4 - Make Tree from text file..\n");
+  printf("5 - Exit\n");
 }
